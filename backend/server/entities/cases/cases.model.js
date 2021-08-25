@@ -15,7 +15,7 @@ const caseSchema = mongoose.Schema({
   phone_numbers: [{ type: String }],
   address: {
     street: { type: String, required: true, trim: true },
-    postcode: { type: String, required: true, trim: true }    
+    postcode: { type: String, required: true, trim: true, minlength: 5, maxlength: 5 }    
   },
   //GEOJSON (https://mongoosejs.com/docs/geojson.html) 
   location: {

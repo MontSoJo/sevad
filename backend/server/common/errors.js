@@ -24,7 +24,7 @@ const errUnauthorized = (msg) => {
 
 const catchErrors = (route) => async (req, res, next, ...args) => {
   try {
-    route(req, res, next, ...args);
+    await route(req, res, next, ...args);
   } catch (err) {
     next(err);
   }

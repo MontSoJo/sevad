@@ -6,6 +6,10 @@ const checkEnvVar = (name) => {
 };
 
 module.exports = {
+  jwt: { 
+    secret: checkEnvVar("JWT_SECRET"),
+    expiration: checkEnvVar("JWT_EXPIRATION_TIME"),
+  },
   port: checkEnvVar("SERVER_PORT"),
   dbConnexion: {
     host: checkEnvVar("DB_HOST"),
