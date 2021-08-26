@@ -1,13 +1,24 @@
 import React, { useState } from 'react';
 import './LoginPage.css';
+import * as api from '../api';
 
-function LoginPage() {
+function LoginPage({ onLogin }) {
   const [valuer_id, setValuerId] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState({ type: "none" });
 
   const login = async (e) => {
     e.preventDefault();
+    try {
+      const { error, accessToken } = await api.login({ valuer_id, password });
+      if (error) {
+        setMessage({ type: "error", text: error });
+      } else {
+        onLogin(accessToken);
+      }
+    } catch (err) {
+      setMessage({ type: "error", text: err.toString() })
+    }
   };
   
   return (

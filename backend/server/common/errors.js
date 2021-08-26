@@ -12,7 +12,7 @@ const errorHandler = (err, req, res, next) => {
     const { code, message } =err;
     return res.status(code).send({ error: message});    
   }
-  res.status(500).send({ error: `Internal Server error ${err}`});
+  res.status(500).send({ error: `Error intern del Servidor ${err}`});
 }
 
 const errMalformed = (msg) => {

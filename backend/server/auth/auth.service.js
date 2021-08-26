@@ -16,7 +16,7 @@ const createToken = (valuer_id) => {
   return {
     accessToken: token,
     tokenType: "Bearer",
-    expiresIn: '2h',
+    expiresIn: config.jwt.expiration,
   }
 }
 
