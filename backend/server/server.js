@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.static('../../frontend/dist'));
 
 require('./entities/valuers/valuers.routes').addRoutesTo(app);
-require('./entities/cases/cases.routes').addRoutesTo(app);
+require('./entities/proceedings/proceedings.routes').addRoutesTo(app);
 //require('./entities/visits/visits.routes').addRoutesTo(app);
 
 app.use(errorHandler);

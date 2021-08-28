@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-const caseSchema = mongoose.Schema({
-  case_id: {
+const proceedingSchema = mongoose.Schema({
+  proceeding_id: {
     type: String,
     unique: true,
     required: true,
@@ -46,8 +46,8 @@ const caseSchema = mongoose.Schema({
   },
 });
 
-//caseSchema.index({ });
+//proceedingSchema.index({ });
 
-const Cases = mongoose.model('case', caseSchema);
+const Proceedings = mongoose.model('proceeding', proceedingSchema);
 
-module.exports = Cases;
+module.exports = Proceedings;

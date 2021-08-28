@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import * as api from '../api';
 
 function SchedulePage({ onLogout }) {
+
   return (
     <div>
       <button onClick={onLogout}>Tancar sessió</button>
