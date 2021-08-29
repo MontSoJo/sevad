@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import * as api from '../api';
+import "./SchedulePage.css";
+import ProceedingTable from '../components/ProceedingTable';
 
 function SchedulePage({ onLogout }) {
 
   return (
-    <div>
+    <div className="schedule-page">
       <button onClick={onLogout}>Tancar sessió</button>
-      <h1>Estic a la pàgina programació de visites</h1>
+      <h1>Pàgina programació de visites</h1>
+      <ProceedingTable />
     </div>
   )
 }

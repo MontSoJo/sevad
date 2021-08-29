@@ -35,18 +35,18 @@ const proceedingSchema = mongoose.Schema({
   },
   type: {
     type: String,
-    enum: ["Primera valoració", "Revisió de grau", "Revisió provisional", "Revisió d’ofici", "Reclamació"],
+    enum: ["Primera instància", "Reclamació prèvia", "Revisió a instancies de part", "Revisió d’ofici", "Recurs d'alçada"],
     required: true
   },
   status: { 
     type: String,
-    enum: ["Pendent", "Citat", ], 
+    enum: ["Pendent", "Citat", "Valorat"], 
     required: true,
     default: 'Pendent'
   },
 });
 
-//proceedingSchema.index({ });
+proceedingSchema.index({ proceeding_id: 1 });
 
 const Proceedings = mongoose.model('proceeding', proceedingSchema);
 

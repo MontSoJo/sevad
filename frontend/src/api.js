@@ -12,14 +12,14 @@ export const login = async ({ valuer_id, password }) => {
   return json;
 };
 
-export const getAllCases = async () => {
+export const getAllProceedings = async () => {
   const token = localStorage.getItem('token');
-  const response = await fetch(`${HOST}/cases`, {
+  const response = await fetch(`${HOST}/proceedings`, {
     method: "GET",
     headers: {
       "Authorization": `Bearer ${token}`,
     },
   });
-  const caseList = await response.json();
-  return caseList
+  const proceedingList = await response.json();
+  return proceedingList;
 };
