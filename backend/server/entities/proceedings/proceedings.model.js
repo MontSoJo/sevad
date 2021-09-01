@@ -38,7 +38,7 @@ const proceedingSchema = mongoose.Schema({
     enum: ["Primera instància", "Reclamació prèvia", "Revisió a instancies de part", "Revisió d’ofici", "Recurs d'alçada"],
     required: true
   },
-  status: { 
+  state: { 
     type: String,
     enum: ["Pendent", "Citat", "Valorat"], 
     required: true,

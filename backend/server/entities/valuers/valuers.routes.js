@@ -1,5 +1,6 @@
 const { catchErrors, errMalformed, errUnauthorized } = require("../../common/errors");
 const auth = require('../../auth/auth.service');
+const { authenticated } = require("../../auth/auth.middlewares");
 const Valuer = require('./valuers.model');
 
 const register = catchErrors(async (req, res) => {
@@ -40,9 +41,18 @@ const login = catchErrors(async (req, res) => {
   res.status(201).send(token);
 });
 
+const getValuer =  catchErrors(async (req, res) => {
+    const valuer = await Valuer.findOne({ valuer_id: req.valuer.valuer_id }).lean().exec();
+    if (!valuer) {
+      errUnauthorized('Valorador eliminat');
+    }  
+    res.status(200).send(valuer);
+  });
+
 const addRoutesTo = (app) => { 
   app.post('/register', register);
-  app.post('/login', login);
+  app.post('/login', login); 
+  app.get('/valuer', authenticated, getValuer);  
 }
 
 module.exports = {

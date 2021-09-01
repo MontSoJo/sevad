@@ -12,7 +12,7 @@ export const login = async ({ valuer_id, password }) => {
   return json;
 };
 
-export const getAllProceedings = async () => {
+export const getProceedings = async () => {
   const token = localStorage.getItem('token');
   const response = await fetch(`${HOST}/proceedings`, {
     method: "GET",
@@ -20,6 +20,30 @@ export const getAllProceedings = async () => {
       "Authorization": `Bearer ${token}`,
     },
   });
-  const proceedingList = await response.json();
-  return proceedingList;
+  const proceedings = await response.json();
+  return proceedings;
+};
+
+export const getAllPostcodes = async () => {
+  const token = localStorage.getItem('token');
+  const response = await fetch(`${HOST}/postcodes`, {
+    method: "GET",
+    headers: {
+      "Authorization": `Bearer ${token}`,
+    },
+  });
+  const postcodes = await response.json();
+  return postcodes;
+};
+
+export const getValuer = async () => {
+  const token = localStorage.getItem('token');
+  const response = await fetch(`${HOST}/valuer`, {
+    method: "GET",
+    headers: {
+      "Authorization": `Bearer ${token}`,
+    },
+  });
+  const valuer = await response.json();
+  return valuer;
 };
