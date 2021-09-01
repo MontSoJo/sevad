@@ -10,7 +10,7 @@ h2 {
 .login-page {
   position: absolute;
   max-width: 770px;
-  max-height: 485px;
+  max-height: 100%;
   background: #FFFFFF;
   box-shadow: 0px 2px 4px 3px rgb(0 0 0 / 5%);
   border-radius: 5px;
@@ -88,7 +88,10 @@ input.submit-btn {
   border-color: #EB5B57;
   padding: 8px 30px;
 }
-
+.message.error {
+  background-color: white;
+  color: red;
+}
 /* IMAGE */
 div#image-form {
   padding: 30px;
@@ -101,4 +104,25 @@ div#image-form {
   background-repeat: no-repeat;
   background-size: 100%;
   background-image: url(/src/img/img-1.svg);
+}
+
+/* media query */
+
+@media (max-width: 768px) and (min-width: 300px) {
+  .login-page {
+      content: '';
+      display: block;
+      padding-bottom: 100%;
+      /* margin: 20px; */
+      padding: 2rem;
+  }
+  .myImage {
+    width: 300px;
+  }
+  div#image-form {
+    padding: 30px 30px 0px;
+}
+div#form-login {
+  padding: 0px 30px 30px;
+}
 }
