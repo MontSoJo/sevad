@@ -4,9 +4,14 @@ import './ValuerInfo.css';
 
 function ValuerInfo() {
   const [valuer, setValuer] = useState(null);
+  const [photo, setPhoto] = useState(null);
 
   const loadValuerInfo = async () => {
-    const valuer = await api.getValuer();
+    const valuer = await api.getValuer();      
+    if (valuer) { 
+      const [response, error] = await api.getPhoto(valuer.valuer_id);
+      setPhoto(response);      
+    }
     setValuer(valuer);
   };
 
@@ -17,7 +22,8 @@ function ValuerInfo() {
   return (    
     <div className="valuer-info-header">
       <div>{valuer === null ? 'loading...' : valuer.name.first + ' ' + valuer.name.last}</div>
-      <div>{valuer === null ? 'loading...' : valuer.postcodes.toString()}</div>      
+      <div>{valuer === null ? 'loading...' : `Zona: ${valuer.postcodes.toString()}`}</div>
+      <div>{photo === null ? 'loading...' : <img src={photo}/>}</div>
     </div>
   )
 }

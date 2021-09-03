@@ -2,6 +2,8 @@ const { catchErrors, errMalformed, errUnauthorized } = require("../../common/err
 const auth = require('../../auth/auth.service');
 const { authenticated } = require("../../auth/auth.middlewares");
 const Valuer = require('./valuers.model');
+const fs = require('fs');
+const path = require('path');
 
 const register = catchErrors(async (req, res) => {
   const { valuer_id, password, name, postcodes } =  req.body;
@@ -45,14 +47,32 @@ const getValuer =  catchErrors(async (req, res) => {
     const valuer = await Valuer.findOne({ valuer_id: req.valuer.valuer_id }).lean().exec();
     if (!valuer) {
       errUnauthorized('Valorador eliminat');
-    }  
+    } 
     res.status(200).send(valuer);
-  });
+});
+
+
+const fileExists = (file) => {
+  return new Promise((resolve) => {
+    fs.access(file, fs.constants.F_OK, (err) => {
+      err ? resolve(false) : resolve(true)
+    });
+  })
+}
+
+const getPhoto =  catchErrors(async (req, res) => {
+  let file = path.join(__dirname, 'valuers.photos', `${req.params.id}.jpg`);  
+  if (!fs.existsSync(file)) {
+    file = path.join(__dirname, 'valuers.photos', 'default.jpg');  
+  }
+  res.status(200).sendFile(file);  
+});
 
 const addRoutesTo = (app) => { 
   app.post('/register', register);
   app.post('/login', login); 
   app.get('/valuer', authenticated, getValuer);  
+  app.get('/files/:id', authenticated, getPhoto);  
 }
 
 module.exports = {

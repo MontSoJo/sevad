@@ -15,7 +15,7 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
 
-app.use(express.static('../../frontend/dist'));
+//app.use(express.static('../../frontend/dist'));
 
 require('./entities/valuers/valuers.routes').addRoutesTo(app);
 require('./entities/proceedings/proceedings.routes').addRoutesTo(app);

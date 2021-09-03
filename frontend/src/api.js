@@ -12,7 +12,7 @@ export const login = async ({ valuer_id, password }) => {
   return json;
 };
 
-export const getProceedings = async () => {
+export const getProceedings = async (queryString) => {
   const token = localStorage.getItem('token');
   const response = await fetch(`${HOST}/proceedings`, {
     method: "GET",
@@ -47,3 +47,20 @@ export const getValuer = async () => {
   const valuer = await response.json();
   return valuer;
 };
+
+
+export const getPhoto = async (valuer_id) => {
+  const token = localStorage.getItem('token');
+  const response = await fetch(`${HOST}/files/${valuer_id}`, {
+    method: "GET",
+    cache: "no-cache",
+    headers: {
+      "Authorization": `Bearer ${token}`,
+      "Content-Type": "image/jpeg",
+    },
+  });
+  const photo = await response.blob();
+  return [URL.createObjectURL(photo), null];
+};
+
+

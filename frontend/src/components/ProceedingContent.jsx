@@ -11,36 +11,38 @@ function ProceedingContent() {
     setPostcodesSelect(postcodes);
   };
 
-  const loadProceedingTable = async () => {
+  const loadProceedingTable = async () => {        
     const proceedings = await api.getProceedings();
     setProceedingTable(proceedings);
   };
 
-
   useEffect(() => {
-    loadAllPostcodes();
     loadProceedingTable();
+    loadAllPostcodes();
   }, []);
 
 
   let table;
   let select;
+  let tableHeader;
+  tableHeader = ["D.Sol.licitud", "Id. Procés", "Nom i Cognoms", "Adreça", "CP", "Tipus de Procés", "Telèfons"]
   if (proceedingTable === null) {
     table = <div>loading...</div>;
   } else {
     table = (
       <table>
+        <tr>
+          {tableHeader.map((header) => (<th>{header}</th>))}
+        </tr>
         {proceedingTable.map((proceeding) => (
           <tr>
+            <td>{proceeding.request_date}</td>
             <td>{proceeding.proceeding_id}</td>
-            <td>{proceeding.name.first}</td>
-            <td>{proceeding.name.last}</td>
-            <td>{proceeding.phone_numbers}</td>
+            <td>{proceeding.name.first} {proceeding.name.last}</td>
             <td>{proceeding.address.street}</td>
             <td>{proceeding.address.postcode}</td>
-            <td>{proceeding.request_date}</td>
             <td>{proceeding.type}</td>
-            <td>{proceeding.status}</td>            
+            <td>{proceeding.phone_numbers}</td>
           </tr>
         ))}
       </table>
@@ -53,7 +55,7 @@ function ProceedingContent() {
       </select>
     );
   }
-  
+
   return (
     <div>
       <form>
