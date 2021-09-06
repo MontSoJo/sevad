@@ -18,7 +18,6 @@ const register = catchErrors(async (req, res) => {
     errMalformed('Falta contrasenya');
   }
   const hashedPassword = await auth.hashPassword(password);
-  //name and postcodes unimplemented
   const valuer = await Valuer.create({ valuer_id, password: hashedPassword, name, postcodes });
   res.status(201).send(valuer);
 });
@@ -51,15 +50,6 @@ const getValuer =  catchErrors(async (req, res) => {
     res.status(200).send(valuer);
 });
 
-
-const fileExists = (file) => {
-  return new Promise((resolve) => {
-    fs.access(file, fs.constants.F_OK, (err) => {
-      err ? resolve(false) : resolve(true)
-    });
-  })
-}
-
 const getPhoto =  catchErrors(async (req, res) => {
   let file = path.join(__dirname, 'valuers.photos', `${req.params.id}.jpg`);  
   if (!fs.existsSync(file)) {
@@ -72,7 +62,7 @@ const addRoutesTo = (app) => {
   app.post('/register', register);
   app.post('/login', login); 
   app.get('/valuer', authenticated, getValuer);  
-  app.get('/files/:id', authenticated, getPhoto);  
+  app.get('/valuer/photo/:id', authenticated, getPhoto);  
 }
 
 module.exports = {

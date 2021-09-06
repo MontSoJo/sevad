@@ -14,7 +14,7 @@ export const login = async ({ valuer_id, password }) => {
 
 export const getProceedings = async (queryString) => {
   const token = localStorage.getItem('token');
-  const response = await fetch(`${HOST}/proceedings`, {
+  const response = await fetch(`${HOST}/proceedings${queryString}`, {
     method: "GET",
     headers: {
       "Authorization": `Bearer ${token}`,
@@ -48,10 +48,9 @@ export const getValuer = async () => {
   return valuer;
 };
 
-
 export const getPhoto = async (valuer_id) => {
   const token = localStorage.getItem('token');
-  const response = await fetch(`${HOST}/files/${valuer_id}`, {
+  const response = await fetch(`${HOST}/valuer/photo/${valuer_id}`, {
     method: "GET",
     cache: "no-cache",
     headers: {

@@ -19,6 +19,9 @@ const getAllPostcodes = catchErrors(async (req, res) => {
     .distinct("address.postcode")
     .lean()
     .exec();
+  allPostcodes.map((item, index) => {    
+    allPostcodes[index] = { "postcode": item, "selected": req.valuer.postcodes.includes(item) };
+  });
   res.status(200).send(allPostcodes);
 });
 

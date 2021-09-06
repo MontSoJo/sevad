@@ -5,7 +5,6 @@ import ValuerInfo from '../components/ValuerInfo';
 import ProceedingContent from '../components/ProceedingContent';
 
 function SchedulePage({ onLogout }) {
-
   return (
     <div className="schedule-page">
       <Title />
