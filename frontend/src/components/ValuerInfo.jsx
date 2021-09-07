@@ -22,7 +22,7 @@ function ValuerInfo() {
   return (    
     <div className="valuer-info-header">
       <div>{valuer === null ? 'loading...' : valuer.name.first + ' ' + valuer.name.last}</div>
-      <div>{valuer === null ? 'loading...' : `Zona: ${valuer.postcodes.toString()}`}</div>
+      <div>{valuer === null ? 'loading...' : `Zona: ${valuer.postcodes.join(', ')}`}</div>
       <div>{photo === null ? 'loading...' : <img src={photo}/>}</div>
     </div>
   )

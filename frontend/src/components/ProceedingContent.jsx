@@ -1,4 +1,4 @@
-import React, { useEffect, useState, createContext } from "react";
+import React, { useState, createContext } from "react";
 import ProceedingList from "./ProceedingList";
 import ProceedingSearch from "./ProceedingSearch";
 import "./ProceedingContent.css";

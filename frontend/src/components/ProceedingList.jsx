@@ -18,7 +18,8 @@ function ProceedingList() {
 
   let table;
   let tableHeader;
-  tableHeader = ["D.Sol.licitud", "Id. Procés", "Nom i Cognoms", "Adreça", "CP", "Tipus de Procés", "Telèfons"]
+  let requetDate, dd, mm;
+  tableHeader = ["Sel.","D.Sol.licitud","Id. Procés","Nom i Cognoms","Adreça","CP","Tipus de Procés","Telèfons"]
   if (proceedingTable === null) {
     table = <div>loading...</div>;
   } else {
@@ -27,17 +28,24 @@ function ProceedingList() {
         <tr>
           {tableHeader.map((header) => (<th>{header}</th>))}
         </tr>
-        {proceedingTable.map((proceeding) => (
+        {proceedingTable.map((proceeding) => {
+          requetDate = new Date(proceeding.request_date);
+          dd = requetDate.getDate();
+          dd = dd < 10 ? '0' + dd : dd;
+          mm = requetDate.getMonth() + 1;
+          mm = mm < 10 ? '0' + mm : mm;          
+          return (
           <tr>
-            <td>{proceeding.request_date}</td>
+            <td><input type="radio" name="proceeding" value={proceeding.proceeding_id} /></td>
+            <td>{`${dd}/${mm}/${requetDate.getFullYear()}`}</td>
             <td>{proceeding.proceeding_id}</td>
             <td>{proceeding.name.first} {proceeding.name.last}</td>
             <td>{proceeding.address.street}</td>
             <td>{proceeding.address.postcode}</td>
             <td>{proceeding.type}</td>
-            <td>{proceeding.phone_numbers}</td>
+            <td>{proceeding.phone_numbers.join(', ')}</td>
           </tr>
-        ))}
+        )})}
       </table>
     );
   }
