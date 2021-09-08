@@ -1,6 +1,6 @@
 const { authenticated } = require("../../auth/auth.middlewares");
 const { catchErrors } = require("../../common/errors");
-const Proceedings = require("./proceedings.model");
+const Proceeding = require("./proceedings.model");
 
 const getProceedings = catchErrors(async (req, res) => {
   let postcodes = req.query.postcode;
@@ -11,7 +11,7 @@ const getProceedings = catchErrors(async (req, res) => {
   if (!requestDate) {
     requestDate = new Date().toISOString().slice(0, 10);
   }
-  const proceedings = await Proceedings.find({
+  const proceedings = await Proceeding.find({
     state: "Pendent",
     "address.postcode": { $in: postcodes },
     request_date: { $lt: requestDate },
@@ -23,7 +23,7 @@ const getProceedings = catchErrors(async (req, res) => {
 });
 
 const getAllPostcodes = catchErrors(async (req, res) => {
-  const allPostcodes = await Proceedings.find()
+  const allPostcodes = await Proceeding.find()
     .distinct("address.postcode")
     .lean()
     .exec();

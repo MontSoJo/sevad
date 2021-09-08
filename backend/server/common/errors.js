@@ -9,7 +9,7 @@ class ApiError extends Error {
 
 const errorHandler = (err, req, res, next) => {
   if(err.name === "ApiError") {
-    const { code, message } =err;
+    const { code, message } = err;
     return res.status(code).send({ error: message});    
   }
   res.status(500).send({ error: `Error intern del Servidor ${err}`});

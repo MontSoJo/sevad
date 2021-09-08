@@ -48,6 +48,6 @@ const proceedingSchema = mongoose.Schema({
 
 proceedingSchema.index({ proceeding_id: 1 });
 
-const Proceedings = mongoose.model('proceeding', proceedingSchema);
+const Proceeding = mongoose.model('proceeding', proceedingSchema);
 
-module.exports = Proceedings;
+module.exports = Proceeding;

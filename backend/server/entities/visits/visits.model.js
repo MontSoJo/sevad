@@ -18,6 +18,6 @@ const visitSchema = mongoose.Schema({
 
 visitSchema.index({ visit_date: 1 });
 
-const Visits = mongoose.model('visit', visitSchema);
+const Visit = mongoose.model('visit', visitSchema);
 
-module.exports = Visits;
+module.exports = Visit;
