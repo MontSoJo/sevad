@@ -62,4 +62,14 @@ export const getPhoto = async (valuer_id) => {
   return [URL.createObjectURL(photo), null];
 };
 
-
+export const getVisitsOfTheDay = async (visitDate) => {
+  const token = localStorage.getItem('token');
+  const response = await fetch(`${HOST}/visits/${visitDate}`, {
+    method: "GET",
+    headers: {
+      "Authorization": `Bearer ${token}`,
+    },
+  });
+  const visits = await response.json();
+  return visits;
+};

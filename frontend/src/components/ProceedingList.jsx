@@ -25,27 +25,31 @@ function ProceedingList() {
   } else {
     table = (
       <table>
-        <tr>
-          {tableHeader.map((header) => (<th>{header}</th>))}
-        </tr>
-        {proceedingTable.map((proceeding) => {
-          requetDate = new Date(proceeding.request_date);
-          dd = requetDate.getDate();
-          dd = dd < 10 ? '0' + dd : dd;
-          mm = requetDate.getMonth() + 1;
-          mm = mm < 10 ? '0' + mm : mm;          
-          return (
+        <thead>
           <tr>
-            <td><input type="radio" name="proceeding" value={proceeding.proceeding_id} /></td>
-            <td>{`${dd}/${mm}/${requetDate.getFullYear()}`}</td>
-            <td>{proceeding.proceeding_id}</td>
-            <td>{proceeding.name.first} {proceeding.name.last}</td>
-            <td>{proceeding.address.street}</td>
-            <td>{proceeding.address.postcode}</td>
-            <td>{proceeding.type}</td>
-            <td>{proceeding.phone_numbers.join(', ')}</td>
+            {tableHeader.map((header) => (<th>{header}</th>))}
           </tr>
-        )})}
+        </thead>
+        <tbody>
+          {proceedingTable.map((proceeding) => {
+            requetDate = new Date(proceeding.request_date);
+            dd = requetDate.getDate();
+            dd = dd < 10 ? '0' + dd : dd;
+            mm = requetDate.getMonth() + 1;
+            mm = mm < 10 ? '0' + mm : mm;          
+            return (
+            <tr>
+              <td><input type="radio" name="proceeding" value={proceeding._id} /></td>
+              <td>{`${dd}/${mm}/${requetDate.getFullYear()}`}</td>
+              <td>{proceeding.proceeding_id}</td>
+              <td>{proceeding.name.first} {proceeding.name.last}</td>
+              <td>{proceeding.address.street}</td>
+              <td>{proceeding.address.postcode}</td>
+              <td>{proceeding.type}</td>
+              <td>{proceeding.phone_numbers.join(', ')}</td>
+            </tr>
+          )})}
+        </tbody>
       </table>
     );
   }

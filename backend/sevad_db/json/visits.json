@@ -1,0 +1,46 @@
+[{
+  "_id": {
+    "$oid": "6139e66ecdf703138dc64aa2"
+  },
+  "valued": "Pendent",
+  "visit_date": {
+    "$date": "2021-09-07T12:00:00Z"
+  },
+  "proceeding_ObjectId": {
+    "$oid": "6139e487e46b631a4c0443c9"
+  },
+  "valuer_ObjectId": {
+    "$oid": "612e3a7b7a0ccb12ff958551"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6139f3f724a7ab140a0ea4f7"
+  },
+  "valued": "Pendent",
+  "visit_date": {
+    "$date": "2021-09-07T15:30:00Z"
+  },
+  "proceeding_ObjectId": {
+    "$oid": "6139e487e46b631a4c043cee"
+  },
+  "valuer_ObjectId": {
+    "$oid": "612e3a7b7a0ccb12ff958551"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "613a36e31c9ae003e41217f2"
+  },
+  "valued": "Pendent",
+  "visit_date": {
+    "$date": "2021-09-08T10:00:00Z"
+  },
+  "proceeding_ObjectId": {
+    "$oid": "6139e487e46b631a4c04460b"
+  },
+  "valuer_ObjectId": {
+    "$oid": "612e3a7b7a0ccb12ff958551"
+  },
+  "__v": 0
+}]
