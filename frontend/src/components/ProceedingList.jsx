@@ -1,25 +1,40 @@
 import React, { useEffect, useState, useContext } from "react";
 import { SearchContext } from "./ProceedingContent";
+import { ScheduleContext } from "../pages/SchedulePage";
 import * as api from "../api";
 import "./ProceedingList.css";
 
 function ProceedingList() {
   const [proceedingTable, setProceedingTable] = useState(null);
   const { search } = useContext(SearchContext);
+  const { proceedingIdSelected, setProceedingIdSelected, visitAdded } =
+    useContext(ScheduleContext);
 
-  const loadProceedingTable = async () => {    
-    const proceedings = await api.getProceedings(search !== '' ? `?${search}` : '');
+  const loadProceedingTable = async () => {
+    const proceedings = await api.getProceedings(
+      search !== "" ? `?${search}` : ""
+    );
     setProceedingTable(proceedings);
+    setProceedingIdSelected(proceedings[0]._id);
   };
 
   useEffect(() => {
     loadProceedingTable();
-  }, [search]);
+  }, [search, visitAdded]);
 
   let table;
   let tableHeader;
   let requetDate, dd, mm;
-  tableHeader = ["Sel.","D.Sol.licitud","Id. Procés","Nom i Cognoms","Adreça","CP","Tipus de Procés","Telèfons"]
+  tableHeader = [
+    "Sel.",
+    "D.Sol.licitud",
+    "Id. Procés",
+    "Nom i Cognoms",
+    "Adreça",
+    "CP",
+    "Tipus de Procés",
+    "Telèfons",
+  ];
   if (proceedingTable === null) {
     table = <div>loading...</div>;
   } else {
@@ -27,28 +42,39 @@ function ProceedingList() {
       <table>
         <thead>
           <tr>
-            {tableHeader.map((header) => (<th>{header}</th>))}
+            {tableHeader.map((header) => (
+              <th>{header}</th>
+            ))}
           </tr>
         </thead>
         <tbody>
           {proceedingTable.map((proceeding) => {
             requetDate = new Date(proceeding.request_date);
             dd = requetDate.getDate();
-            dd = dd < 10 ? '0' + dd : dd;
+            dd = dd < 10 ? "0" + dd : dd;
             mm = requetDate.getMonth() + 1;
-            mm = mm < 10 ? '0' + mm : mm;          
+            mm = mm < 10 ? "0" + mm : mm;
             return (
-            <tr>
-              <td><input type="radio" name="proceeding" value={proceeding._id} /></td>
-              <td>{`${dd}/${mm}/${requetDate.getFullYear()}`}</td>
-              <td>{proceeding.proceeding_id}</td>
-              <td>{proceeding.name.first} {proceeding.name.last}</td>
-              <td>{proceeding.address.street}</td>
-              <td>{proceeding.address.postcode}</td>
-              <td>{proceeding.type}</td>
-              <td>{proceeding.phone_numbers.join(', ')}</td>
-            </tr>
-          )})}
+              <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="proceedings"
+                    value={proceeding._id}
+                    checked={proceeding._id === proceedingIdSelected}
+                    onChange={(e) => setProceedingIdSelected(e.target.value)}
+                  />
+                </td>
+                <td>{`${dd}/${mm}/${requetDate.getFullYear()}`}</td>
+                <td>{proceeding.proceeding_id}</td>
+                <td>{proceeding.name.first} {proceeding.name.last}</td>
+                <td>{proceeding.address.street}</td>
+                <td>{proceeding.address.postcode}</td>
+                <td>{proceeding.type}</td>
+                <td>{proceeding.phone_numbers.join(", ")}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     );
@@ -58,7 +84,7 @@ function ProceedingList() {
     <div>
       <div>{table}</div>
     </div>
-  )
+  );
 }
 
 export default ProceedingList;

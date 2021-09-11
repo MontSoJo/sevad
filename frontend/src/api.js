@@ -73,3 +73,17 @@ export const getVisitsOfTheDay = async (visitDate) => {
   const visits = await response.json();
   return visits;
 };
+
+export const addVisit = async (visiDate, proceedingId) => {
+  const token = localStorage.getItem('token');
+  const response = await fetch(`${HOST}/visits`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`,
+    },
+    body: JSON.stringify({ visit_date: visiDate, proceeding_ObjectId: proceedingId }),
+  });
+  const newVisit = await response.json();
+  return newVisit;
+};

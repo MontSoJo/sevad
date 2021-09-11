@@ -31,8 +31,6 @@ const getVisitsOfTheDay = catchErrors(async (req, res) => {
   res.status(200).send(visits);
 });
 
-const getVisitsOfWeek = catchErrors(async (req, res) => {});
-
 const addRoutesTo = (app) => {
   app.post("/visits", authenticated, addVisit);
   app.get("/visits/:day", authenticated, getVisitsOfTheDay);
