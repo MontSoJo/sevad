@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { SearchContext } from "./ProceedingContent";
+import { v4 as uuidv4 } from "uuid";
 import * as api from "../api";
 import "./ProceedingSearch.css";
 
@@ -64,7 +65,7 @@ function ProceedingSearch({ initSelectedPostcodes }) {
             onChange={handleSelect}
           >
             {postcodes.map((item) => (
-              <option value={item.postcode}>
+              <option key={uuidv4()} value={item.postcode}>
                 {item.postcode}
               </option>
             ))}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { SearchContext } from "./ProceedingContent";
 import { ScheduleContext } from "../pages/SchedulePage";
+import { v4 as uuidv4 } from "uuid";
 import * as api from "../api";
 import "./ProceedingList.css";
 
@@ -43,7 +44,7 @@ function ProceedingList() {
         <thead>
           <tr>
             {tableHeader.map((header) => (
-              <th>{header}</th>
+              <th key={uuidv4()}>{header}</th>
             ))}
           </tr>
         </thead>
@@ -55,7 +56,7 @@ function ProceedingList() {
             mm = requetDate.getMonth() + 1;
             mm = mm < 10 ? "0" + mm : mm;
             return (
-              <tr>
+              <tr key={proceeding._id}>
                 <td>
                   <input
                     type="radio"

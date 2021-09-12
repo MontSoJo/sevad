@@ -58,11 +58,15 @@ function VisitsOfTheDayList({visitDate}) {
           </tr>
         </thead>
         <tbody>
-          {visitsOfTheDay.map((visit) => {
+          {visitsOfTheDay.map((visit) => {            
+            let prova1 = {...visit.proceeding_ObjectId};
+            let prova2 = {...prova1};
+            let prova3 = {...prova2.name};
+            //console.log(prova3.last);
             return (
-            <tr>
+            <tr key={visit._id}>
               <td>{visit.visit_date.slice(11, 16)}</td>
-              <td>{visit.proceeding_ObjectId.name.first} {visit.proceeding_ObjectId.name.last}</td>
+              <td>{prova3.first} {prova3.last}</td>
             </tr>
           )})}
         </tbody>
