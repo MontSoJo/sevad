@@ -6,5 +6,19 @@ img.img-profile {
 .valuer-info-header {
     display: grid;
     grid-template-columns: 8fr 1fr;
-    grid-gap: 20px;
+    grid-gap: 0px;
+}
+.user-nav {
+    font-family: Poppins;
+    font-weight: normal;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #000000;
+}
+.zone-nav {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    color: #000000;
 }

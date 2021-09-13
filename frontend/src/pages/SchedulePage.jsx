@@ -25,7 +25,7 @@ function SchedulePage({ onLogout }) {
         <Title />
         <div className="login-nav">
         <ValuerInfo />
-        <button onClick={onLogout}>Tancar sessió</button>
+        <div class="btn-box"><button id="btn-exit" onClick={onLogout}></button></div>
         </div>
         </div>
         <div className="program">

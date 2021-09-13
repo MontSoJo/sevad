@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
-    padding: 20px;
+    padding: 20px 20px 10px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .login-nav {
@@ -22,3 +22,10 @@
     padding: 6px 10px;
     text-transform: capitalize;
   }
+  button#btn-exit {
+    background: url(/src/img/exit.svg) no-repeat scroll 7px;
+    padding: 9px 20px;
+    border: none;
+    width: 17%;
+    vertical-align: top;
+}

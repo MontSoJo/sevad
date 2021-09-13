@@ -5,7 +5,11 @@ h2 {
   font-weight: 500;
   font-size: 24px;
 }
-
+/* NAV */
+.nav-f {
+  padding: 20px 20px 10px;
+  box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+}
 /* FORM */
 .login-page {
   position: absolute;

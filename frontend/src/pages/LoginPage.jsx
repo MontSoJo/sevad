@@ -25,7 +25,9 @@ function LoginPage({ onLogin }) {
   
   return (    
     <div>
+      <div className="nav-f">
       <Title />
+      </div>
       <div className="login-page">
         <div id="image-form">
           <div className="myImage"> </div>
