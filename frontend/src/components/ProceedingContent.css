@@ -11,3 +11,20 @@ select {
 .select-checkbox option:checked::before {
   content: "\2611";
 }
+
+.btn-list {
+}
+.btn-list.no-clicked {
+  background-color: blue;
+}
+.btn-list.clicked {
+  background-color: green;
+}
+.btn-map {
+}
+.btn-map.no-clicked {
+  background-color: blue;
+}
+.btn-map.clicked {
+  background-color: green;
+}

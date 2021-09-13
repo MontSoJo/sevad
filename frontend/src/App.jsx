@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "leaflet/dist/leaflet.css";
 import "./App.css";
 import LoginPage from "./pages/LoginPage";
 import SchedulePage from "./pages/SchedulePage";

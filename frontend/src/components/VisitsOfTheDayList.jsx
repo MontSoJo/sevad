@@ -66,11 +66,7 @@ function VisitsOfTheDayList({visitDate}) {
             </th>
           </tr>
         </thead>
-<<<<<<< HEAD
-        <tbody>          
-=======
         <tbody className="text-box-day">
->>>>>>> origin/master
           {visitsOfTheDay.map((visit) => {            
             proceeding = {...{...visit.proceeding_ObjectId}};
             proceedingName = {...proceeding.name};
