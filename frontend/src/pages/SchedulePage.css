@@ -2,14 +2,14 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
-    padding: 20px 20px 10px;
+    padding: 20px 40px 10px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .login-nav {
     text-align: right;
 }
 .program {
-    padding: 20px;
+    padding: 40px;
 }
 .logout {
     background: #EB5B57;

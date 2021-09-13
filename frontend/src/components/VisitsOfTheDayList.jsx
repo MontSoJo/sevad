@@ -54,17 +54,23 @@ function VisitsOfTheDayList({visitDate}) {
     mm = newVisitDate.getMonth() + 1;
     mm = mm < 10 ? '0' + mm : mm;          
     table = (
-      <table>
+      <table className="days-of-week">
         <thead>
           <tr>
-            <th colSpan='2'>
+            <th class="day" colSpan='2'>
               {`${daysInCatalan[day]} ${dd}/${mm}`}
+              <div>
               <input type="time" value={newVisitTime} onChange={(e) => setNewVisitTime(e.target.value)} />
               <input type="button" value="+" onClick={handleAddVisit}/>
+              </div>
             </th>
           </tr>
         </thead>
+<<<<<<< HEAD
         <tbody>          
+=======
+        <tbody className="text-box-day">
+>>>>>>> origin/master
           {visitsOfTheDay.map((visit) => {            
             proceeding = {...{...visit.proceeding_ObjectId}};
             proceedingName = {...proceeding.name};
@@ -81,7 +87,7 @@ function VisitsOfTheDayList({visitDate}) {
 
   return (
     <div>
-      <div>{table}</div>
+      <div className="appointments">{table}</div>
     </div>
   )
 }

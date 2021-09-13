@@ -19,9 +19,9 @@ function VisitsOfTheWeekContent() {
   return (
     <WeekContext.Provider value={{weekStart}}>
       <div>
-        <button onClick={(e) => setWeekStart(new Date(weekStart.getTime() - TIME_ONE_DAY * 7))}>setmana anterior</button>
+        <button class="previous" onClick={(e) => setWeekStart(new Date(weekStart.getTime() - TIME_ONE_DAY * 7))}><img src="/src/img/previous.svg"/></button>
         <input type="date" value={weekStart.toISOString().slice(0, 10)} onChange={(e) => setWeekStart(getRelativeDayInWeek(e.target.value, 1))}/>
-        <button onClick={(e) => setWeekStart(new Date(weekStart.getTime() + TIME_ONE_DAY * 7))}>setmana següent</button>
+        <button class="next" onClick={(e) => setWeekStart(new Date(weekStart.getTime() + TIME_ONE_DAY * 7))}><img src="/src/img/next.svg"/></button>
       </div>
       <div className="week-container">
         <VisitsOfTheDayList visitDate={weekStart.toISOString().slice(0, 10)} />

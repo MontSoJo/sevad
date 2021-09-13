@@ -46,7 +46,7 @@ function ProceedingList() {
     table = <div>loading...</div>;
   } else {
     table = (
-      <table>
+      <table class="table-list">
         <thead>
           <tr>
             {tableHeader.map((header) => (

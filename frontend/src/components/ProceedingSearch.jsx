@@ -77,7 +77,7 @@ function ProceedingSearch({ initSelectedPostcodes }) {
             ))}
           </select>
         </label>
-        <input type="submit" value="Buscar" />
+        <input className="btn-search" type="submit" value="Buscar" />
       </form>
     </div>
   );
