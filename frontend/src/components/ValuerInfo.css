@@ -1,0 +1,10 @@
+img.img-profile {
+    border-radius: 100px;
+    width: 50px;
+    object-fit: cover;
+}
+.valuer-info-header {
+    display: grid;
+    grid-template-columns: 8fr 1fr;
+    grid-gap: 20px;
+}

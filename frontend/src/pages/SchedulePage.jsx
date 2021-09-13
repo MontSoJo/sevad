@@ -21,11 +21,17 @@ function SchedulePage({ onLogout }) {
       }}
     >
       <div className="schedule-page">
+        <div className="nav">
         <Title />
+        <div className="login-nav">
         <ValuerInfo />
         <button onClick={onLogout}>Tancar sessió</button>
+        </div>
+        </div>
+        <div className="program">
         <VisitsOfTheWeekContent />
         <ProceedingContent />
+        </div>
       </div>
     </ScheduleContext.Provider>
   );

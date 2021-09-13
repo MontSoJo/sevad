@@ -1,3 +1,24 @@
-.schedule-page {
-  padding: 1.5rem;
+.nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    padding: 20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
+.login-nav {
+    text-align: right;
+}
+.program {
+    padding: 20px;
+}
+.logout {
+    background: #EB5B57;
+    border-radius: 3px;
+    color: white;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 12px;
+    border: none;
+    padding: 6px 10px;
+    text-transform: capitalize;
+  }
