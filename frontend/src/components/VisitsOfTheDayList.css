@@ -1,9 +1,11 @@
 table {  
   margin: 10px 0;
   font-size: 0.7em;
-  font-family: sans-serif;
-  min-width: 200px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  font-family: 'poppins', sans-serif;
+}
+table.days-of-week {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  padding: 0px 40px;
 }
 thead tr {
   text-align: center;

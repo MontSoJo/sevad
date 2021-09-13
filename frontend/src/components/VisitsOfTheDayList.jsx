@@ -47,7 +47,7 @@ function VisitsOfTheDayList({visitDate}) {
     mm = newVisitDate.getMonth() + 1;
     mm = mm < 10 ? '0' + mm : mm;          
     table = (
-      <table>
+      <table className="days-of-week">
         <thead>
           <tr>
             <th colSpan='2'>
