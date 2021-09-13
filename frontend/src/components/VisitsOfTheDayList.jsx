@@ -52,8 +52,10 @@ function VisitsOfTheDayList({visitDate}) {
           <tr>
             <th class="day" colSpan='2'>
               {`${daysInCatalan[day]} ${dd}/${mm}`}
+              <div>
               <input type="time" value={newVisitTime} onChange={(e) => setNewVisitTime(e.target.value)} />
               <input type="button" value="+" onClick={handleAddVisit}/>
+              </div>
             </th>
           </tr>
         </thead>
