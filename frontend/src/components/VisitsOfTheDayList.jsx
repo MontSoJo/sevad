@@ -50,14 +50,14 @@ function VisitsOfTheDayList({visitDate}) {
       <table className="days-of-week">
         <thead>
           <tr>
-            <th colSpan='2'>
+            <th class="day" colSpan='2'>
               {`${daysInCatalan[day]} ${dd}/${mm}`}
               <input type="time" value={newVisitTime} onChange={(e) => setNewVisitTime(e.target.value)} />
               <input type="button" value="+" onClick={handleAddVisit}/>
             </th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="text-box-day">
           {visitsOfTheDay.map((visit) => {            
             let prova1 = {...visit.proceeding_ObjectId};
             let prova2 = {...prova1};
@@ -76,7 +76,7 @@ function VisitsOfTheDayList({visitDate}) {
 
   return (
     <div>
-      <div>{table}</div>
+      <div className="appointments">{table}</div>
     </div>
   )
 }
