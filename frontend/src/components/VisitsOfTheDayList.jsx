@@ -13,8 +13,14 @@ function VisitsOfTheDayList({visitDate}) {
   const { proceedingIdSelected, visitAdded, setVisitAdded } = useContext(ScheduleContext);
 
   const loadVisitsOfTheDay = async () => {    
-    const visits = await api.getVisitsOfTheDay(visitDate);
-    setVisitsOfTheDay(visits);
+    try {
+      const visits = await api.getVisitsOfTheDay(visitDate);
+      if (visits) {
+        setVisitsOfTheDay(visits);
+      }        
+    } catch (err) {
+      console.log(err.toString());
+    }
   };
 
   useEffect(() => {
@@ -37,6 +43,7 @@ function VisitsOfTheDayList({visitDate}) {
 
   let table;
   let newVisitDate, day, dd, mm;
+  let proceeding, proceedingName;
   if (visitsOfTheDay === null) {
     table = <div>loading...</div>;
   } else {    
@@ -57,16 +64,14 @@ function VisitsOfTheDayList({visitDate}) {
             </th>
           </tr>
         </thead>
-        <tbody>
+        <tbody>          
           {visitsOfTheDay.map((visit) => {            
-            let prova1 = {...visit.proceeding_ObjectId};
-            let prova2 = {...prova1};
-            let prova3 = {...prova2.name};
-            //console.log(prova3.last);
+            proceeding = {...{...visit.proceeding_ObjectId}};
+            proceedingName = {...proceeding.name};
             return (
             <tr key={visit._id}>
               <td>{visit.visit_date.slice(11, 16)}</td>
-              <td>{prova3.first} {prova3.last}</td>
+              <td>{proceedingName.first} {proceedingName.last}</td>
             </tr>
           )})}
         </tbody>

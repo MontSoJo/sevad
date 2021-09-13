@@ -12,11 +12,17 @@ function ProceedingList() {
     useContext(ScheduleContext);
 
   const loadProceedingTable = async () => {
-    const proceedings = await api.getProceedings(
-      search !== "" ? `?${search}` : ""
-    );
-    setProceedingTable(proceedings);
-    setProceedingIdSelected(proceedings[0]._id);
+    try {
+      const proceedings = await api.getProceedings(
+        search !== "" ? `?${search}` : ""
+      );
+      if (proceedings) {
+        setProceedingTable(proceedings);
+        setProceedingIdSelected(proceedings[0]._id);
+      }
+    } catch (err) {
+      console.log(err.toString());
+    }
   };
 
   useEffect(() => {

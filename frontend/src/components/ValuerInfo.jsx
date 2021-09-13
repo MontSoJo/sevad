@@ -6,13 +6,20 @@ function ValuerInfo() {
   const [valuer, setValuer] = useState(null);
   const [photo, setPhoto] = useState(null);
 
+
   const loadValuerInfo = async () => {
     const valuer = await api.getValuer();      
-    if (valuer) { 
-      const [response, error] = await api.getPhoto(valuer.valuer_id);
-      setPhoto(response);      
+    try {
+      if (valuer) { 
+        const [photo, error] = await api.getPhoto(valuer.valuer_id);
+        if (photo) {
+          setPhoto(photo);      
+        }
+        setValuer(valuer);
+      }            
+    } catch (err) {
+      console.log(err.toString());
     }
-    setValuer(valuer);
   };
 
   useEffect(() => {
@@ -26,7 +33,6 @@ function ValuerInfo() {
       <div className="zone-nav">{valuer === null ? 'loading...' : `Zona: ${valuer.postcodes.join(', ')}`}</div>
       </div>
       <div>{photo === null ? 'loading...' : <img className="img-profile" src={photo}/>}</div>
-      
     </div>
   )
 }

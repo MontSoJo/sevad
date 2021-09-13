@@ -10,8 +10,14 @@ function ProceedingSearch({ initSelectedPostcodes }) {
   const { setSearch } = useContext(SearchContext);
 
   const loadAllPostcodes = async () => {
-    const allPostcodes = await api.getAllPostcodes();
-    setPostcodes(allPostcodes);
+    try {
+      const allPostcodes = await api.getAllPostcodes();
+      if (allPostcodes) {
+        setPostcodes(allPostcodes);
+      }
+    } catch (err) {
+      console.log(err.toString());
+    }
   };
 
   useEffect(() => {

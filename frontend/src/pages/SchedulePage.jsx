@@ -22,16 +22,18 @@ function SchedulePage({ onLogout }) {
     >
       <div className="schedule-page">
         <div className="nav">
-        <Title />
-        <div className="login-nav">
-        <ValuerInfo />
-        <div class="btn-box"><button id="btn-exit" onClick={onLogout}></button></div>
-        </div>
+          <Title />
+          <div className="login-nav">
+            <ValuerInfo />
+            <div className="btn-box">
+              <button id="btn-exit" onClick={onLogout}></button>
+            </div>
+          </div>
         </div>
         <div className="program">
-        <VisitsOfTheWeekContent />
-        <ProceedingContent />
-        </div>
+          <VisitsOfTheWeekContent />
+          <ProceedingContent />
+        </div>        
       </div>
     </ScheduleContext.Provider>
   );
