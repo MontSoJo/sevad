@@ -6,7 +6,10 @@ import "./ProceedingSearch.css";
 
 function ProceedingSearch({ initSelectedPostcodes }) {
   const [postcodes, setPostcodes] = useState([]);
-  const [requestDate, setRequestDate] = useState(new Date().toISOString().slice(0, 10));
+  const [requestDate, setRequestDate] = useState(
+    new Date().toISOString().slice(0, 10)
+  );
+  const [expanded, setExpanded] = useState(false);
   const { setSearch } = useContext(SearchContext);
 
   const loadAllPostcodes = async () => {
@@ -24,15 +27,14 @@ function ProceedingSearch({ initSelectedPostcodes }) {
     loadAllPostcodes();
   }, []);
 
-  const handleSelect = (e) => {
+  const handleCheckbox = (e) => {
     let newPostcode = {};
     setPostcodes(
       postcodes.map((item) => {
         newPostcode = {
           postcode: item.postcode,
-          selected: [...e.target.selectedOptions]
-            .map((option) => option.value)
-            .includes(item.postcode),
+          selected:
+            e.target.id === item.postcode ? e.target.checked : item.selected,
         };
         return newPostcode;
       })
@@ -42,9 +44,11 @@ function ProceedingSearch({ initSelectedPostcodes }) {
   const handleSearch = (e) => {
     e.preventDefault();
     let newSearch = new URLSearchParams(
-      postcodes.filter((item) => item.selected === true).map((item) => ["postcode", item.postcode])
+      postcodes
+        .filter((item) => item.selected === true)
+        .map((item) => ["postcode", item.postcode])
     );
-    newSearch.append('date', requestDate);
+    newSearch.append("date", requestDate);
     if (newSearch) {
       setSearch(newSearch.toString());
     }
@@ -54,29 +58,43 @@ function ProceedingSearch({ initSelectedPostcodes }) {
     <div>
       <form onSubmit={handleSearch}>
         <label>
-          Sol.licituds anteriors a: 
+          Sol.licituds anteriors a:
           <input
             type="date"
             value={requestDate}
             onChange={(e) => setRequestDate(e.target.value)}
           />
         </label>
-        <label>
-          Zones: 
-          <select
-            multiple={true}
-            className="select-checkbox"
-            size="5"
-            value={postcodes.filter((item) => item.selected === true).map((item) => item.postcode)}
-            onChange={handleSelect}
-          >
-            {postcodes.map((item) => (
-              <option key={uuidv4()} value={item.postcode}>
-                {item.postcode}
+
+        <div className="multiselect">
+          <div className="selectBox" onClick={(e) => setExpanded(!expanded)}>
+            Zones:
+            <select defaultValue="">
+              <option value="" disabled hidden>
+                {postcodes
+                  .filter((item) => item.selected === true)
+                  .map((item) => item.postcode)
+                  .join(", ")}
               </option>
+            </select>
+            <div className="overSelect"></div>
+          </div>
+          <div className={`checkboxes ${expanded ? "expanded" : ""}`}>
+            {postcodes.map((item) => (
+              <label htmlFor={item.postcode} key={uuidv4()}>
+                <input
+                  type="checkbox"
+                  key={uuidv4()}
+                  id={item.postcode}
+                  defaultChecked={item.selected}                   
+                  onChange={handleCheckbox}
+                />
+                {item.postcode}
+              </label>
             ))}
-          </select>
-        </label>
+          </div>
+        </div>
+
         <input className="btn-search" type="submit" value="Buscar" />
       </form>
     </div>
