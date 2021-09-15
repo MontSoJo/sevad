@@ -47,3 +47,14 @@ tbody.text-box-day {
   color: #353535;
   line-height: 2.2em;
 }
+
+
+@media (max-width: 768px) and (min-width: 300px){
+  .week-container{
+    display: block !important;
+}
+table.days-of-week {
+  width: 100%;
+  max-width: 100%;
+}
+}

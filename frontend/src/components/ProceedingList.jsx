@@ -21,6 +21,7 @@ function ProceedingList({ proceedingData }) {
     "Telèfons",
   ];    
   table = (
+    <div id="table">
     <table className="table-list">
       <thead>
         <tr>
@@ -59,6 +60,7 @@ function ProceedingList({ proceedingData }) {
         })}
       </tbody>
     </table>
+    </div>
   );
 
   return (
