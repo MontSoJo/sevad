@@ -18,3 +18,9 @@ input[type="date"], select {
   font-family: 'Poppins';
   margin: 0 10px;
 }
+
+@media (max-width: 450px) {
+  .button-date {
+    text-align: center;
+  }
+}

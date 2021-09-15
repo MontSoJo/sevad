@@ -54,6 +54,7 @@ tbody.text-box-day {
     display: block !important;
 }
 table.days-of-week {
+  text-align: center;
   width: 100%;
   max-width: 100%;
 }
