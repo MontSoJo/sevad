@@ -56,7 +56,7 @@ function ProceedingSearch({ initSelectedPostcodes }) {
 
   return (
     <div>
-      <form onSubmit={handleSearch}>
+      < onSubmit={handleSearch}>
         <label>
           Sol.licituds anteriors a:
           <input

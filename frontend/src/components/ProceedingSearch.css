@@ -57,3 +57,12 @@ form {
 .checkboxes label:hover {
   background-color: #1e90ff;
 }
+
+@media (max-width: 450px) {
+  form {
+    display: block;
+  }
+  .multiselect {
+    padding: 10px 0;
+  }
+}
