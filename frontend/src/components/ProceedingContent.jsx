@@ -47,18 +47,20 @@ function ProceedingContent() {
   return (
     <SearchContext.Provider value={{ search, setSearch }}>
       <ProceedingSearch />
+      <div className="button-box">
       <input
         type="button"
-        value="Llista"
+        value=""
         className={`btn-list ${toggle ? "clicked" : "no-clicked"}`}
         onClick={(e) => setToggle(!toggle)}
       />
       <input
         type="button"
-        value="Mapa"
+        value=""
         className={`btn-map ${toggle ? "no-clicked" : "clicked"}`}
         onClick={(e) => setToggle(!toggle)}
       />
+      </div>
       {content}
     </SearchContext.Provider>
   );

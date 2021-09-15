@@ -1,5 +1,6 @@
 body {
     font-family: 'Poppins', sans-serif;
+    font-weight: 300;
 }
 h2 {
   font-weight: 500;
@@ -11,6 +12,9 @@ h2 {
   box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
 }
 /* FORM */
+.form-display {
+  display: block;
+}
 .login-page {
   position: absolute;
   max-width: 770px;

@@ -34,7 +34,7 @@ function LoginPage({ onLogin }) {
         </div>
         <div id="form-login">
           <div><h2>Iniciar sessió</h2></div>
-          <form onSubmit={login}>
+          <form class="form-display" onSubmit={login}>
             <label className="form-label">
               <div>Usuari</div>
               <input className="form-input" id="user" type="text" value={valuer_id} onChange={(e) => setValuerId(e.target.value)} />

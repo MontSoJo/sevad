@@ -32,3 +32,15 @@
     width: 17%;
     vertical-align: top;
 }
+
+@media (max-width: 450px) {
+    .nav {
+        height: 115px;
+        display: block;
+    }
+    button#btn-exit {
+    position: absolute;
+    top: 13px;
+    right: -14px;
+    }
+}

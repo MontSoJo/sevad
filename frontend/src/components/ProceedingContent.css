@@ -1,16 +1,26 @@
-.btn-list {
+.button-box {
+    display: flex;
+    justify-content: end;
 }
 .btn-list.no-clicked {
-  background-color: blue;
+  padding: 10px 18px;
+  background: url(/src/img/list-click.svg) no-repeat scroll 7px;
+  background-color: white;
 }
 .btn-list.clicked {
-  background-color: green;
+  padding: 10px 18px;
+  background: url(/src/img/list.svg) no-repeat scroll 7px;
+  background-color: #EB5B57;
 }
-.btn-map {
-}
+
 .btn-map.no-clicked {
-  background-color: blue;
+  padding: 10px 18px;
+  background: url(/src/img/location.svg) no-repeat scroll 7px;
+  background-color: white;
 }
 .btn-map.clicked {
-  background-color: green;
+  padding: 10px 18px;
+  background: url(/src/img/location-click.svg) no-repeat scroll 7px;
+  background-color: #EB5B57;
+
 }

@@ -1,3 +1,6 @@
+form {
+  display: flex;
+}
 .btn-search {
   background: #eb5b57;
   border-radius: 3px;
@@ -7,6 +10,7 @@
   color: white;
   border: none;
   padding: 7px;
+  max-height: 37px;
 }
 
 .multiselect {
@@ -14,6 +18,7 @@
 }
 
 .selectBox {
+  display: flex;
   position: relative;
 }
 
@@ -36,9 +41,14 @@
 }
 
 .checkboxes.expanded {
+  max-height: 100px;
   display: block;
-  border: 1px #dadada solid;
+  overflow-y: scroll;
+  border: 1px solid #B0BAC9;
+  border-radius: 3px;
+  padding: 5px 7px;
 }
+
 
 .checkboxes label {
   display: block;
