@@ -55,7 +55,7 @@ function ProceedingSearch({ initSelectedPostcodes }) {
   };
 
   return (
-    <div>
+    <div className="search-box">
       <form onSubmit={handleSearch}>
         <label>
           Sol.licituds anteriors a:
@@ -65,19 +65,18 @@ function ProceedingSearch({ initSelectedPostcodes }) {
             onChange={(e) => setRequestDate(e.target.value)}
           />
         </label>
-
         <div className="multiselect">
-          <div className="selectBox" onClick={(e) => setExpanded(!expanded)}>
-            Zones:
-            <select defaultValue="">
+          <div className="select-box" onClick={(e) => setExpanded(!expanded)}>
+            <span style={{padding: "0.4rem 0 0 0" }}>Zones:</span>       
+            <select name="postcodes" defaultValue="">
               <option value="" disabled hidden>
                 {postcodes
                   .filter((item) => item.selected === true)
                   .map((item) => item.postcode)
                   .join(", ")}
               </option>
-            </select>
-            <div className="overSelect"></div>
+            </select>            
+            <div className="over-select"></div>
           </div>
           <div className={`checkboxes ${expanded ? "expanded" : ""}`}>
             {postcodes.map((item) => (
@@ -94,7 +93,6 @@ function ProceedingSearch({ initSelectedPostcodes }) {
             ))}
           </div>
         </div>
-
         <input className="btn-search" type="submit" value="Buscar" />
       </form>
     </div>
