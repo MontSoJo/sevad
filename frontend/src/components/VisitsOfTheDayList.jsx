@@ -2,22 +2,36 @@ import React, { useEffect, useState, useContext } from "react";
 import { WeekContext } from "./VisitsOfTheWeekContent";
 import { ScheduleContext } from "../pages/SchedulePage";
 import * as api from "../api";
-import './VisitsOfTheDayList.css';
+import "./VisitsOfTheDayList.css";
 
-const daysInCatalan = ['Diumenge','Dilluns','Dimarts','Dimecres','Dijous','Divendres','Dissabte'];
+const daysInCatalan = [
+  "Diumenge",
+  "Dilluns",
+  "Dimarts",
+  "Dimecres",
+  "Dijous",
+  "Divendres",
+  "Dissabte",
+];
 
-function VisitsOfTheDayList({visitDate}) {
+function VisitsOfTheDayList({ visitDate }) {
   const [visitsOfTheDay, setVisitsOfTheDay] = useState(null);
-  const [newVisitTime, setNewVisitTime] = useState('');
-  const weekStart  = useContext(WeekContext);
-  const { proceedingIdSelected, visitAdded, setVisitAdded } = useContext(ScheduleContext);
+  const [newVisitTime, setNewVisitTime] = useState("");
+  const weekStart = useContext(WeekContext);
+  const {
+    proceedingIdSelected,
+    visitAdded,
+    setVisitAdded,
+    visitRemoved,
+    setVisitRemoved,
+  } = useContext(ScheduleContext);
 
-  const loadVisitsOfTheDay = async () => {    
+  const loadVisitsOfTheDay = async () => {
     try {
       const visits = await api.getVisitsOfTheDay(visitDate);
       if (visits) {
         setVisitsOfTheDay(visits);
-      }        
+      }
     } catch (err) {
       console.log(err.toString());
     }
@@ -30,15 +44,27 @@ function VisitsOfTheDayList({visitDate}) {
   const handleAddVisit = async (e) => {
     if (newVisitTime) {
       let visitDateTime = new Date(visitDate);
-      visitDateTime.setUTCHours(newVisitTime.slice(0,2));
-      visitDateTime.setUTCMinutes(newVisitTime.slice(3,5));
-      const newVisit = await api.addVisit(visitDateTime.toISOString(), proceedingIdSelected);
+      visitDateTime.setUTCHours(newVisitTime.slice(0, 2));
+      visitDateTime.setUTCMinutes(newVisitTime.slice(3, 5));
+      const newVisit = await api.addVisit(
+        visitDateTime.toISOString(),
+        proceedingIdSelected
+      );
       if (newVisit) {
-        setNewVisitTime('');
+        setNewVisitTime("");
         loadVisitsOfTheDay();
-        setVisitAdded(!visitAdded);  
+        setVisitAdded(!visitAdded);
       }
-    }  
+    }
+  };
+
+  const handleRemoveVisit = async (visitId) => {
+    console.log(visitId);
+    const oldVisit = await api.removeVisit(visitId);
+    if (oldVisit) {
+      loadVisitsOfTheDay();
+      setVisitRemoved(!visitRemoved);
+    }
   };
 
   let table;
@@ -46,36 +72,48 @@ function VisitsOfTheDayList({visitDate}) {
   let proceeding, proceedingName;
   if (visitsOfTheDay === null) {
     table = <div>loading...</div>;
-  } else {    
+  } else {
     newVisitDate = new Date(visitDate);
     day = newVisitDate.getDay();
     dd = newVisitDate.getDate();
-    dd = dd < 10 ? '0' + dd : dd;
+    dd = dd < 10 ? "0" + dd : dd;
     mm = newVisitDate.getMonth() + 1;
-    mm = mm < 10 ? '0' + mm : mm;          
+    mm = mm < 10 ? "0" + mm : mm;
     table = (
       <table className="days-of-week">
         <thead>
           <tr>
-            <th className="day" colSpan='2'>
+            <th className="day" colSpan="3">
               {`${daysInCatalan[day]} ${dd}/${mm}`}
               <div>
-              <input type="time" value={newVisitTime} onChange={(e) => setNewVisitTime(e.target.value)} />
-              <input type="button" value="+" onClick={handleAddVisit}/>
+                <input
+                  type="time"
+                  value={newVisitTime}
+                  onChange={(e) => setNewVisitTime(e.target.value)}
+                />
+                <input type="button" value="+" onClick={handleAddVisit} />
               </div>
             </th>
           </tr>
         </thead>
         <tbody className="text-box-day">
-          {visitsOfTheDay.map((visit) => {            
-            proceeding = {...{...visit.proceeding_ObjectId}};
-            proceedingName = {...proceeding.name};
+          {visitsOfTheDay.map((visit) => {
+            proceeding = { ...{ ...visit.proceeding_ObjectId } };
+            proceedingName = { ...proceeding.name };
             return (
-            <tr key={visit._id}>
-              <td>{visit.visit_date.slice(11, 16)}</td>
-              <td>{proceedingName.first} {proceedingName.last}</td>
-            </tr>
-          )})}
+              <tr key={visit._id}>
+                <td>{visit.visit_date.slice(11, 16)}</td>
+                <td>
+                  {proceedingName.first} {proceedingName.last}
+                </td>
+                <td>
+                  <button className="trash" onClick={(e) => handleRemoveVisit(visit._id)}>
+                    <img src="/src/img/next.svg" />
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     );
@@ -85,7 +123,7 @@ function VisitsOfTheDayList({visitDate}) {
     <div>
       <div className="appointments">{table}</div>
     </div>
-  )
+  );
 }
 
 export default VisitsOfTheDayList;

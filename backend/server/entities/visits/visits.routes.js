@@ -12,6 +12,14 @@ const addVisit = catchErrors(async (req, res) => {
   res.status(201).send(newVisit);
 });
 
+const removeVisit = catchErrors(async (req, res) => {
+  const visit = await Visit.findOneAndRemove({ _id: req.params.id });
+  if (visit) {
+    await Proceeding.findOneAndUpdate({ _id: visit.proceeding_ObjectId },{ state: "Pendent" });
+  }
+  res.status(201).send(visit);
+});
+
 const getVisitsOfTheDay = catchErrors(async (req, res) => {
   let visitsOfTheDay = req.params.day;
   if (!visitsOfTheDay) {
@@ -33,6 +41,7 @@ const getVisitsOfTheDay = catchErrors(async (req, res) => {
 
 const addRoutesTo = (app) => {
   app.post("/visits", authenticated, addVisit);
+  app.delete("/visits/:id", authenticated, removeVisit);
   app.get("/visits/:day", authenticated, getVisitsOfTheDay);
 };
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo, useContext } from "react";
 import {
   MapContainer,
   Popup,
@@ -7,8 +7,13 @@ import {
   useMapEvent,
 } from "react-leaflet";
 import L from "leaflet";
+import { ScheduleContext } from "../pages/SchedulePage";
+import "./ProceedingMap.css";
 
-const colors = ["5F6CB3", "64A1CC", "72C7D4", "B6E1C9", "F7FADA"];
+//Example Color Palette -> "5F6CB3","64A1CC","72C7D4","B6E1C9","F7FADA"
+//Red Autumn Color Palette -> "782222","9C3F42","CA4A32","FB7B43","FBA983"
+//Sunset with violet shadows Color Palette -> "833B6D", "A14162", "BF4E53", "DB845b", "EEC078"
+const colors = ["5F6CB3","64A1CC","72C7D4","B6E1C9","F7FADA"];
 
 const tileLayer = {
   attribution:
@@ -33,28 +38,25 @@ function customMarkerIcon(color) {
 }
 
 function ProceedingMap({ proceedingData }) {
+  //const [bounds, setBounds] = useState();
+  const { proceedingIdSelected, setProceedingIdSelected } = useContext(ScheduleContext);
 
-  let points = [];
-  //let bounds = [];
-  let dates = [];
 
-  dates = proceedingData.map(({ request_date }) => {
+  const dates = proceedingData.map(({ request_date }) => {
     return new Date(request_date);
   });
 
   let min = Math.min(...dates);
   let max = Math.max(...dates);
-  let sum = (max - min) / 5;
+  let sum = (max - min) / colors.length;
   let chuncks = new Array();
   let colorIndex = 0;
-  chuncks.push(min);
-  chuncks.push(min + 1 * sum);
-  chuncks.push(min + 2 * sum);
-  chuncks.push(min + 3 * sum);
-  chuncks.push(min + 4 * sum);
+  for (let i = 0; i < colors.length; i++) {
+    chuncks.push(min + i * sum);
+  }
 
-  points = proceedingData.map(
-    ({ location, name, address, phone_numbers, request_date }) => {
+  const points = proceedingData.map(
+    ({ _id, location, name, address, phone_numbers, request_date }) => {
       for (let i = 0; i < chuncks.length; i++) {
         if (new Date(request_date).getTime() > chuncks[i]) {
           colorIndex = i;
@@ -63,6 +65,7 @@ function ProceedingMap({ proceedingData }) {
         }
       }
       return {
+        id: _id,
         lat: location.coordinates[0],
         lng: location.coordinates[1],
         titleName: `${name.first} ${name.last}`,
@@ -72,14 +75,23 @@ function ProceedingMap({ proceedingData }) {
       };
     }
   );
+
+  const bounds = L.latLngBounds();
+  points.forEach(({lat, lng}) => {
+    bounds.extend([lat, lng]);
+  })
+
   return (
-    <MapContainer center={[41.42883,2.17828]} zoom={14} scrollWheelZoom={false}>
+    <MapContainer bounds={bounds} zoom={13} scrollWheelZoom={false}>
       <TileLayer {...tileLayer} />
-      {points.map(({ lat, lng, titleName, titleStreet, titlePhoneNumbers, colorIndex }, index) => (
+      {points.map(({ id, lat, lng, titleName, titleStreet, titlePhoneNumbers, colorIndex }, index) => (
           <Marker
-            key={index}
+            key={id}
             icon={customMarkerIcon(colors[colorIndex])}
             position={[lat, lng]}
+            eventHandlers={{
+              click: (e) => setProceedingIdSelected(id),
+            }}            
           >
             <Popup>
               <strong>{titleName}</strong><br />

@@ -52,6 +52,7 @@ function ProceedingSearch({ initSelectedPostcodes }) {
     if (newSearch) {
       setSearch(newSearch.toString());
     }
+    setExpanded(false);
   };
 
   return (

@@ -6,7 +6,8 @@ table {
 table.days-of-week {
   box-shadow: rgb(50 50 105 / 15%) 0px 2px 5px 0px, rgb(0 0 0 / 5%) 0px 1px 1px 0px;
   padding: 5px 15px;
-  max-width: 300px;
+  /*max-width: 350px;*/
+  min-width: 325px;
 }
 thead tr {
   text-align: center;
@@ -47,7 +48,10 @@ tbody.text-box-day {
   color: #353535;
   line-height: 2.2em;
 }
-
+.trash {
+  border: none;
+  background-color: inherit;
+}
 
 @media (max-width: 768px) and (min-width: 300px){
   .week-container{

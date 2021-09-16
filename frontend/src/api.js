@@ -87,3 +87,15 @@ export const addVisit = async (visiDate, proceedingId) => {
   const newVisit = await response.json();
   return newVisit;
 };
+
+export const removeVisit = async (visitId) => {
+  const token = localStorage.getItem('token');
+  const response = await fetch(`${HOST}/visits/${visitId}`, {
+    method: "DELETE",
+    headers: {
+      "Authorization": `Bearer ${token}`,
+    },
+  });
+  const oldVisit = await response.json();
+  return oldVisit;
+};

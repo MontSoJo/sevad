@@ -7,9 +7,10 @@ import ProceedingContent from "../components/ProceedingContent";
 
 export const ScheduleContext = createContext();
 
-function SchedulePage({ onLogout }) {
+function SchedulePage() {
   const [proceedingIdSelected, setProceedingIdSelected] = useState();
   const [visitAdded, setVisitAdded] = useState(false);
+  const [visitRemoved, setVisitRemoved] = useState(false);
 
   return (
     <ScheduleContext.Provider
@@ -18,6 +19,8 @@ function SchedulePage({ onLogout }) {
         setProceedingIdSelected,
         visitAdded,
         setVisitAdded,
+        visitRemoved, 
+        setVisitRemoved,
       }}
     >
       <div className="schedule-page">
@@ -25,9 +28,6 @@ function SchedulePage({ onLogout }) {
           <Title />
           <div className="login-nav">
             <ValuerInfo />
-            <div className="btn-box">
-              <button id="btn-exit" onClick={onLogout}></button>
-            </div>
           </div>
         </div>
         <div className="program">

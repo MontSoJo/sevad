@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
 import "leaflet/dist/leaflet.css";
 import "./App.css";
 import LoginPage from "./pages/LoginPage";
 import SchedulePage from "./pages/SchedulePage";
+
+export const LoginContext = createContext();
 
 function App() {
   const token = localStorage.getItem('token');
@@ -12,15 +14,15 @@ function App() {
     localStorage.setItem('token', token);
     setIsLoggedIn(true);
   }
-  const logout = () => {
-    localStorage.removeItem('token');
-    setIsLoggedIn(false);
-  }
 
   if (!isLoggedIn) { 
-    return <LoginPage onLogin={login} />;
+    return <LoginPage onLogin={login} />
   } else {
-    return <SchedulePage onLogout={logout} />;
+    return (
+      <LoginContext.Provider value={{ setIsLoggedIn }}>
+        <SchedulePage />
+      </LoginContext.Provider>
+    );
   }
 }
 

@@ -13,7 +13,7 @@ function ProceedingContent() {
   const [search, setSearch] = useState("");
   const [toggle, setToggle] = useState(true);
 
-  const { setProceedingIdSelected, visitAdded } = useContext(ScheduleContext);
+  const { setProceedingIdSelected, visitAdded, visitRemoved } = useContext(ScheduleContext);
 
   const loadProceedingData = async () => {
     try {
@@ -31,7 +31,7 @@ function ProceedingContent() {
 
   useEffect(() => {
     loadProceedingData();
-  }, [search, visitAdded]);
+  }, [search, visitAdded, visitRemoved]);
 
   let content;
   if (proceedingData === null) {

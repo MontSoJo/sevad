@@ -14,34 +14,10 @@
 .program {
     padding: 40px;
 }
-.logout {
-    background: #EB5B57;
-    border-radius: 3px;
-    color: white;
-    font-family: inherit;
-    font-weight: 500;
-    font-size: 12px;
-    border: none;
-    padding: 6px 10px;
-    text-transform: capitalize;
-  }
-  button#btn-exit {
-    background: url(/src/img/exit.svg) no-repeat scroll 7px;
-    padding: 9px 20px;
-    border: none;
-    width: 17%;
-    vertical-align: top;
-}
-
 @media (max-width: 450px) {
     .nav {
         height: 115px;
         display: block;
-    }
-    button#btn-exit {
-    position: absolute;
-    top: 13px;
-    right: -14px;
     }
     .program {
         padding: 25px 20px;
