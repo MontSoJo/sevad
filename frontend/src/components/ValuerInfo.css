@@ -6,7 +6,7 @@ img.img-profile {
 .valuer-info-header {
     display: grid;
     grid-template-columns: 8fr 1fr;
-    grid-gap: 0px;
+    grid-gap: 12px;
 }
 .user-nav {
     font-weight: normal;

@@ -134,3 +134,8 @@ div#form-login {
   padding: 0px 30px 30px;
 }
 }
+@media (max-width: 768px) {
+.nav-f {
+  display:none;
+}
+}
