@@ -32,7 +32,7 @@ const getVisitsOfTheDay = catchErrors(async (req, res) => {
     },
     valuer_ObjectId: req.valuer._id,
   })
-    .populate('proceeding_ObjectId', 'name')
+    .populate('proceeding_ObjectId', 'name phone_numbers address')
     .sort('visit_date')
     .lean()
     .exec();
