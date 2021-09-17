@@ -59,7 +59,6 @@ function VisitsOfTheDayList({ visitDate }) {
   };
 
   const handleRemoveVisit = async (visitId) => {
-    console.log(visitId);
     const oldVisit = await api.removeVisit(visitId);
     if (oldVisit) {
       loadVisitsOfTheDay();
@@ -85,14 +84,12 @@ function VisitsOfTheDayList({ visitDate }) {
           <tr>
             <th className="day" colSpan="3">
               {`${daysInCatalan[day]} ${dd}/${mm}`}
-              <div>
-                <input
-                  type="time"
-                  value={newVisitTime}
-                  onChange={(e) => setNewVisitTime(e.target.value)}
-                />
-                <input type="button" value="+" onClick={handleAddVisit} />
-              </div>
+              <input
+                type="time"
+                value={newVisitTime}
+                onChange={(e) => setNewVisitTime(e.target.value)}
+              />
+              <input type="button" value="+" onClick={handleAddVisit} />
             </th>
           </tr>
         </thead>

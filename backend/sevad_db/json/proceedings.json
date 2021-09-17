@@ -231,7 +231,7 @@
     "$date": "2020-07-03T00:00:00Z"
   },
   "type": "Primera Instància",
-  "state": "Pendent"
+  "state": "Citat"
 },{
   "_id": {
     "$oid": "6139e487e46b631a4c043cdc"
@@ -496,7 +496,7 @@
     "$date": "2020-11-09T00:00:00Z"
   },
   "type": "Primera Instància",
-  "state": "Pendent"
+  "state": "Citat"
 },{
   "_id": {
     "$oid": "6139e487e46b631a4c043ce5"
@@ -1365,7 +1365,7 @@
     "$date": "2021-01-04T00:00:00Z"
   },
   "type": "Revisió a instancies de part",
-  "state": "Pendent"
+  "state": "Citat"
 },{
   "_id": {
     "$oid": "6139e487e46b631a4c043d03"
@@ -1999,7 +1999,7 @@
     "$date": "2021-02-26T00:00:00Z"
   },
   "type": "Primera Instància",
-  "state": "Pendent"
+  "state": "Citat"
 },{
   "_id": {
     "$oid": "6139e487e46b631a4c043d19"
@@ -2202,7 +2202,7 @@
     "$date": "2021-02-22T00:00:00Z"
   },
   "type": "Primera Instància",
-  "state": "Pendent"
+  "state": "Citat"
 },{
   "_id": {
     "$oid": "6139e487e46b631a4c043d20"
@@ -2231,7 +2231,7 @@
     "$date": "2021-03-04T00:00:00Z"
   },
   "type": "Primera Instància",
-  "state": "Pendent"
+  "state": "Citat"
 },{
   "_id": {
     "$oid": "6139e487e46b631a4c043d21"
@@ -2318,7 +2318,7 @@
     "$date": "2021-03-05T00:00:00Z"
   },
   "type": "Primera Instància",
-  "state": "Pendent"
+  "state": "Citat"
 },{
   "_id": {
     "$oid": "6139e487e46b631a4c043d24"
@@ -2346,7 +2346,7 @@
     "$date": "2021-02-09T00:00:00Z"
   },
   "type": "Primera Instància",
-  "state": "Pendent"
+  "state": "Citat"
 },{
   "_id": {
     "$oid": "6139e487e46b631a4c043d25"
@@ -2375,7 +2375,7 @@
     "$date": "2021-02-19T00:00:00Z"
   },
   "type": "Primera Instància",
-  "state": "Pendent"
+  "state": "Citat"
 },{
   "_id": {
     "$oid": "6139e487e46b631a4c043d26"
@@ -3156,7 +3156,7 @@
     "$date": "2021-02-18T00:00:00Z"
   },
   "type": "Revisió a instancies de part",
-  "state": "Pendent"
+  "state": "Citat"
 },{
   "_id": {
     "$oid": "6139e487e46b631a4c043d41"
@@ -3910,7 +3910,7 @@
     "$date": "2021-03-05T00:00:00Z"
   },
   "type": "Revisió a instancies de part",
-  "state": "Pendent"
+  "state": "Citat"
 },{
   "_id": {
     "$oid": "6139e487e46b631a4c043d5b"
@@ -3969,7 +3969,7 @@
     "$date": "2021-03-05T00:00:00Z"
   },
   "type": "Revisió a instancies de part",
-  "state": "Pendent"
+  "state": "Citat"
 },{
   "_id": {
     "$oid": "6139e487e46b631a4c043d5d"
@@ -3998,7 +3998,7 @@
     "$date": "2021-03-05T00:00:00Z"
   },
   "type": "Revisió a instancies de part",
-  "state": "Pendent"
+  "state": "Citat"
 },{
   "_id": {
     "$oid": "6139e487e46b631a4c043d5e"
@@ -4026,7 +4026,7 @@
     "$date": "2021-03-02T00:00:00Z"
   },
   "type": "Primera Instància",
-  "state": "Pendent"
+  "state": "Citat"
 },{
   "_id": {
     "$oid": "6139e487e46b631a4c043d5f"
@@ -4835,7 +4835,7 @@
     "$date": "2021-02-04T00:00:00Z"
   },
   "type": "Revisió a instancies de part",
-  "state": "Pendent"
+  "state": "Citat"
 },{
   "_id": {
     "$oid": "6139e487e46b631a4c043d7b"
@@ -4923,7 +4923,7 @@
     "$date": "2021-03-11T00:00:00Z"
   },
   "type": "Revisió a instancies de part",
-  "state": "Pendent"
+  "state": "Citat"
 },{
   "_id": {
     "$oid": "6139e487e46b631a4c043d7e"
@@ -8475,8 +8475,8 @@
   "location": {
     "type": "Point",
     "coordinates": [
-      41.42883,
-      2.17828
+      41.38185,
+      2.17824
     ]
   },
   "request_date": {
@@ -10409,12 +10409,12 @@
   "location": {
     "type": "Point",
     "coordinates": [
-      41.42883,
-      2.17828
+      41.38473,
+      2.17197
     ]
   },
   "request_date": {
-    "$date": "2019-05-15T00:00:00Z"
+    "$date": "2021-02-25T00:00:00Z"
   },
   "type": "Primera Instància",
   "state": "Pendent"
@@ -10641,8 +10641,8 @@
   "location": {
     "type": "Point",
     "coordinates": [
-      41.42883,
-      2.17828
+      41.37953,
+      2.17758
     ]
   },
   "request_date": {
@@ -10757,8 +10757,8 @@
   "location": {
     "type": "Point",
     "coordinates": [
-      41.42883,
-      2.17828
+      41.38482,
+      2.17258
     ]
   },
   "request_date": {
@@ -10816,8 +10816,8 @@
   "location": {
     "type": "Point",
     "coordinates": [
-      41.42883,
-      2.17828
+      41.38134,
+      2.17658
     ]
   },
   "request_date": {
@@ -20582,7 +20582,7 @@
     "$date": "2021-02-19T00:00:00Z"
   },
   "type": "Primera Instància",
-  "state": "Pendent"
+  "state": "Citat"
 },{
   "_id": {
     "$oid": "6139e487e46b631a4c043f9a"
@@ -20631,8 +20631,8 @@
   "location": {
     "type": "Point",
     "coordinates": [
-      41.42883,
-      2.17828
+      41.3795328,
+      2.1775785
     ]
   },
   "request_date": {
@@ -23670,8 +23670,8 @@
   "location": {
     "type": "Point",
     "coordinates": [
-      41.42883,
-      2.17828
+      41.37725,
+      2.17782
     ]
   },
   "request_date": {
@@ -25684,8 +25684,8 @@
   "location": {
     "type": "Point",
     "coordinates": [
-      41.42883,
-      2.17828
+      41.38531,
+      2.17382
     ]
   },
   "request_date": {
@@ -25771,8 +25771,8 @@
   "location": {
     "type": "Point",
     "coordinates": [
-      41.42883,
-      2.17828
+      41.37953,
+      2.17758
     ]
   },
   "request_date": {
@@ -28062,7 +28062,7 @@
     "$date": "2021-03-11T00:00:00Z"
   },
   "type": "Primera Instància",
-  "state": "Pendent"
+  "state": "Citat"
 },{
   "_id": {
     "$oid": "6139e487e46b631a4c04409d"
@@ -32062,8 +32062,8 @@
   "location": {
     "type": "Point",
     "coordinates": [
-      41.42883,
-      2.17828
+      41.38008,
+      2.17721
     ]
   },
   "request_date": {
@@ -39358,8 +39358,8 @@
   "location": {
     "type": "Point",
     "coordinates": [
-      41.42883,
-      2.17828
+      41.38393,
+      2.17819
     ]
   },
   "request_date": {
@@ -39472,8 +39472,8 @@
   "location": {
     "type": "Point",
     "coordinates": [
-      41.42883,
-      2.17828
+      41.38207,
+      2.17938
     ]
   },
   "request_date": {
@@ -39500,8 +39500,8 @@
   "location": {
     "type": "Point",
     "coordinates": [
-      41.42883,
-      2.17828
+      41.38251,
+      2.176
     ]
   },
   "request_date": {
@@ -40340,8 +40340,8 @@
   "location": {
     "type": "Point",
     "coordinates": [
-      41.42883,
-      2.17828
+      41.38234,
+      2.17434
     ]
   },
   "request_date": {
@@ -43729,8 +43729,8 @@
   "location": {
     "type": "Point",
     "coordinates": [
-      41.42883,
-      2.17828
+      41.38105,
+      2.17898
     ]
   },
   "request_date": {
@@ -47324,37 +47324,8 @@
   "location": {
     "type": "Point",
     "coordinates": [
-      41.42883,
-      2.17828
-    ]
-  },
-  "request_date": {
-    "$date": "2021-06-04T00:00:00Z"
-  },
-  "type": "Revisió a instancies de part",
-  "state": "Pendent"
-},{
-  "_id": {
-    "$oid": "6139e487e46b631a4c044338"
-  },
-  "proceeding_id": "000094788",
-  "name": {
-    "first": "NOM94788",
-    "last": "COGNOMS94788"
-  },
-  "phone_numbers": [
-    "654157864",
-    "933517858"
-  ],
-  "address": {
-    "street": "PL SANT JAUME 3",
-    "postcode": "08002"
-  },
-  "location": {
-    "type": "Point",
-    "coordinates": [
-      41.42883,
-      2.17828
+      41.38251,
+      2.17674
     ]
   },
   "request_date": {
@@ -57543,7 +57514,7 @@
     "$date": "2021-02-16T00:00:00Z"
   },
   "type": "Primera Instància",
-  "state": "Pendent"
+  "state": "Citat"
 },{
   "_id": {
     "$oid": "6139e487e46b631a4c044499"
@@ -64900,8 +64871,8 @@
   "location": {
     "type": "Point",
     "coordinates": [
-      41.42883,
-      2.17828
+      41.38419,
+      2.17235
     ]
   },
   "request_date": {
@@ -65500,8 +65471,8 @@
   "location": {
     "type": "Point",
     "coordinates": [
-      41.42883,
-      2.17828
+      41.38361,
+      2.17757
     ]
   },
   "request_date": {
@@ -66307,8 +66278,8 @@
   "location": {
     "type": "Point",
     "coordinates": [
-      41.42883,
-      2.17828
+      41.38162,
+      2.17976
     ]
   },
   "request_date": {
@@ -66335,8 +66306,8 @@
   "location": {
     "type": "Point",
     "coordinates": [
-      41.42883,
-      2.17828
+      41.3845,
+      2.17249
     ]
   },
   "request_date": {
@@ -66738,8 +66709,8 @@
   "location": {
     "type": "Point",
     "coordinates": [
-      41.42883,
-      2.17828
+      41.38321,
+      2.17574
     ]
   },
   "request_date": {
@@ -68638,8 +68609,8 @@
   "location": {
     "type": "Point",
     "coordinates": [
-      41.42883,
-      2.17828
+      41.38025,
+      2.17803
     ]
   },
   "request_date": {
@@ -69397,7 +69368,7 @@
     "$date": "2021-03-04T00:00:00Z"
   },
   "type": "Revisió a instancies de part",
-  "state": "Pendent"
+  "state": "Citat"
 },{
   "_id": {
     "$oid": "6139e487e46b631a4c044635"
@@ -71368,8 +71339,8 @@
   "location": {
     "type": "Point",
     "coordinates": [
-      41.42883,
-      2.17828
+      41.38621,
+      2.175
     ]
   },
   "request_date": {
@@ -71736,8 +71707,8 @@
   "location": {
     "type": "Point",
     "coordinates": [
-      41.42883,
-      2.17828
+      41.38646,
+      2.17409
     ]
   },
   "request_date": {
@@ -71764,8 +71735,8 @@
   "location": {
     "type": "Point",
     "coordinates": [
-      41.42883,
-      2.17828
+      41.38643,
+      2.17408
     ]
   },
   "request_date": {
@@ -71995,8 +71966,8 @@
   "location": {
     "type": "Point",
     "coordinates": [
-      41.42883,
-      2.17828
+      41.38703,
+      2.17246
     ]
   },
   "request_date": {

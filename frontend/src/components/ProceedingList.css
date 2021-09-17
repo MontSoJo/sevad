@@ -2,7 +2,7 @@ table.table-list {
     width: 100%;
 }
 #table {
-    max-height: 300px;
+    max-height: 400px;
     overflow-x: auto;
 }
 #table th {
