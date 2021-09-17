@@ -1,14 +1,12 @@
-import React, { useState, useMemo, useContext } from "react";
+import React, { useContext } from "react";
 import {
   MapContainer,
   Popup,
   TileLayer,
   Marker,
-  useMapEvent,
 } from "react-leaflet";
 import L from "leaflet";
 import { ScheduleContext } from "../pages/SchedulePage";
-import "./ProceedingMap.css";
 
 //Example Color Palette -> "5F6CB3","64A1CC","72C7D4","B6E1C9","F7FADA"
 //Red Autumn Color Palette -> "782222","9C3F42","CA4A32","FB7B43","FBA983"
@@ -38,14 +36,12 @@ function customMarkerIcon(color) {
 }
 
 function ProceedingMap({ proceedingData }) {
-  //const [bounds, setBounds] = useState();
   const { proceedingIdSelected, setProceedingIdSelected } = useContext(ScheduleContext);
-
 
   const dates = proceedingData.map(({ request_date }) => {
     return new Date(request_date);
   });
-
+  
   let min = Math.min(...dates);
   let max = Math.max(...dates);
   let sum = (max - min) / colors.length;

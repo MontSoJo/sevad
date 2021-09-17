@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const valuerSchema = mongoose.Schema({ 
+const valuerSchema = mongoose.Schema({
   valuer_id: {
     type: String,
     unique: true,
@@ -13,7 +13,9 @@ const valuerSchema = mongoose.Schema({
     first: { type: String, required: true, trim: true },
     last: { type: String, required: true, trim: true },
   },
-  postcodes: [{ type: String, required: true, trim: true, minlength: 5, maxlength: 5 }],
+  postcodes: [
+    { type: String, required: true, trim: true, minlength: 5, maxlength: 5 },
+  ],
 });
 
 valuerSchema.index({ valuer_id: 1 });
