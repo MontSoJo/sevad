@@ -108,7 +108,7 @@ function VisitsOfTheDayList({ visitDate }) {
                 </td>
                 <td>
                   <button className="trash" onClick={(e) => handleRemoveVisit(visit._id)}>
-                    <img src="/src/img/next.svg" />
+                    <img src="/src/img/trash.svg" />
                   </button>
                 </td>
               </tr>

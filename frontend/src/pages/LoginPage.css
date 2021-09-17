@@ -121,7 +121,7 @@ div#image-form {
       content: '';
       display: block;
       padding-bottom: 100%;
-      /* margin: 20px; */
+      margin-top: 35px;
       padding: 2rem;
   }
   .myImage {
